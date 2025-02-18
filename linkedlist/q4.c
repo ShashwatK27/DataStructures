@@ -33,7 +33,7 @@ int main(){
   struct node *p=head;
 
   while(p!=0){
-    printf("%d",p->a);
+    printf("%d ",p->a);
     p=p->next;
   }
 
