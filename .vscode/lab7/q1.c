@@ -16,11 +16,11 @@ void push(struct Stack *stack,int value){
   }
   else{
     stack->a[++stack->top]=value;
-    printf("The value %d has been pushed",value);
+    printf("The value %d has been pushed\n",value);
   }
 }
 
-void pop(struct Stack *stack){
+int pop(struct Stack *stack){
   if(stack->top==-1){
     printf("Stack is underloaded!");
     return -1;
@@ -31,7 +31,7 @@ void pop(struct Stack *stack){
   }
 }
 
-void peek(struct Stack *stack){
+int peek(struct Stack *stack){
   if(stack->top==-1){
     printf("Stack is empty!");
     return -1;
@@ -41,7 +41,7 @@ void peek(struct Stack *stack){
   }
 }
 
-void print(struct Stack stack){
+void print(struct Stack *stack){
   if(stack->top==-1){
     printf("Stack is empty!");
   }
