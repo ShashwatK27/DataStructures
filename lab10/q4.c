@@ -8,11 +8,14 @@ struct node {
     struct node *right;
 };
 
+int n;
+
 
 struct node* createNode(int value) {
     struct node* newNode = (struct node*)malloc(sizeof(struct node));
     newNode->data = value;
     newNode->left = newNode->right = NULL;
+    n++;
     return newNode;
 }
 
@@ -20,10 +23,13 @@ struct node* createNode(int value) {
 struct node* insert(struct node** root, int value) {
     if (*root == NULL) {
         *root = createNode(value);
+        
     } else if (value <= (*root)->data) {
         (*root)->left = insert(&((*root)->left), value);
+        
     } else {
         (*root)->right = insert(&((*root)->right), value);
+        
     }
     return *root;
 }
@@ -58,6 +64,8 @@ int main() {
 
     int leafCount = countLeafNodes(root);
     printf("Number of leaf nodes: %d\n", leafCount);
+
+    printf("Number of internal nodes: %d\n", n-leafCount);
 
     return 0;
 }
